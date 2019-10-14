@@ -29,7 +29,7 @@ class StringList
 		while(!empty())
 			pop_front();
 	}
-
+	//Eric
 	// copy operator
 	StringList& operator=(const StringList&);
 
@@ -60,8 +60,6 @@ class StringList
 };
 
 /*
-//Eric
-operator=
 
 //Eric
 size
