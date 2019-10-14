@@ -7,8 +7,8 @@ StringList::StringList(const StringList& other){
 }
 
 StringList::void clear(){
-	while(this.empty() == false){
-		delete this.back();
+	while(empty() == false){
+		pop_back();
 	}
 }
 

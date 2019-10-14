@@ -12,6 +12,8 @@ class StringList
 	} llist;
 
 	llist *_data;
+	llist *_dataLast;
+	int _size;
 
 	public:
 	
@@ -19,6 +21,8 @@ class StringList
 	StringList()
 	{
 		_data = 0;
+		_dataLast = 0;
+		_size = 0;
 	}
 
 	// copy constructor
@@ -45,6 +49,7 @@ class StringList
 		newItem->str = str;
 		newItem->next = _data;
 		_data = newItem;
+		size++;
 	}
 
 	void pop_front()
@@ -52,6 +57,7 @@ class StringList
 		llist *front = _data;
 		_data = front->next;
 		delete front;
+		size--;
 	}
 
 	bool empty() const
