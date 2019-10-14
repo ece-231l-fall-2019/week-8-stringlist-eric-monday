@@ -3,7 +3,7 @@
 // change the value below to 1 to run tests against your StringList class.
 // change the value below to 0 to run tests against the built in std::list.
 
-#if 0
+#if 1
 #include "StringList.h"
 #else
 #include <list>
@@ -24,7 +24,7 @@ int main()
 	// TODO:
 	// Write *at least* 15 more tests to fully test
 	// your class.
-
+/*
 	StringList a;
 
 	a.push_back("A");
@@ -46,6 +46,18 @@ int main()
 	a.pop_back();
 	Assert(a.back() == "A", "back method");
 	return 0;
+*/
+	StringList w;
+	
+	w.push_front("three");
+	w.push_front("two");
+	w.push_front("one");
+	
+	while(!w.empty())
+	{
+		std::cout << w.front() << std::endl;
+		w.pop_front();
+	}
 }
 
 

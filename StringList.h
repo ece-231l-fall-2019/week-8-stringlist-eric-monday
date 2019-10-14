@@ -8,11 +8,15 @@ class StringList
 	typedef struct llist {
 		std::string str;
 		struct llist *next;
+		struct llist *previous;
 	} llist;
+
 
 	llist *_data;
 
 	public:
+	
+	size_t words = 0;
 	
 	// default constructor
 	StringList()
@@ -31,33 +35,78 @@ class StringList
 	}
 
 	// copy operator
-	StringList& operator=(const StringList&);
-
+	StringList& operator=(const StringList& b)
+	{
+		
+		llist *b = new llist;
+		b = _data;
+		b->next = _data->next;
+		b->previous = _data->previous;
+	}
+	
 	std::string& front()
 	{
+	
 		return _data->str;
 	}
-
+	/*
+	std::string& back()
+	{	
+		llist *x = new llist;
+		for(x = _data; x != NULL; x++)
+			return x; 
+	}
+	*/		
 	void push_front(std::string str)
 	{
 		llist *newItem = new llist;
 		newItem->str = str;
 		newItem->next = _data;
+		newItem->previous = NULL;
 		_data = newItem;
+		words++;
 	}
 
 	void pop_front()
 	{
 		llist *front = _data;
 		_data = front->next;
+		_data->previous = NULL;
 		delete front;
+		words--;
 	}
 
 	bool empty() const
 	{
 		return _data == 0;
 	}
+
+	//void size()
+	
+	void push_back()
+	{
+		llist *temp;
+		llist *lastItem = new llist;
+		temp = back();
+		lastItem->previous =  temp;
+		_data->next = lastItem; 
+		lastItem->next = NULL;
+		words++
+	}
+//-- Reverse-------------
+/*	
+	void reverse()
+	{
+		llist *newback = _data;
+		llist *temp1 = _data.back();
+		llist *temp1 = ;
+		newfront->next = temp1;
+		newfront-previous = Null
+	}
+*/
+	
 };
+
 
 /*
 //Eric
