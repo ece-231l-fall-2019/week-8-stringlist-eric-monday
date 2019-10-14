@@ -48,8 +48,11 @@ class StringList
 		llist *newItem = new llist;
 		newItem->str = str;
 		newItem->next = _data;
-		_data = newItem;
 		size++;
+		_data = newItem;
+		if(size >= 1){
+			_dataLast = 
+		}
 	}
 
 	void pop_front()
