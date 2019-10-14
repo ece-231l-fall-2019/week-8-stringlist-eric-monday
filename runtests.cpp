@@ -45,6 +45,13 @@ int main()
 	Assert(a.front() == "A", "front method");
 	a.pop_back();
 	Assert(a.back() == "A", "back method");
+	a.push_front("A");
+	a.unique();
+	Assert(a.size() == 2, "unique method");
+
+	a.clear();
+	Assert(a.front() == "", "clear method");
+
 	return 0;
 }
 

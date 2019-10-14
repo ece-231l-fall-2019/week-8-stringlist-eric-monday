@@ -8,6 +8,7 @@ class StringList
 	typedef struct llist {
 		std::string str;
 		struct llist *next;
+		struct llist *previous;
 	} llist;
 
 	llist *_data;
@@ -57,6 +58,11 @@ class StringList
 	{
 		return _data == 0;
 	}
+	//Bryan
+	void clear();
+	string& back();
+	void pop_back(string str);
+	void unique();
 };
 
 /*
@@ -64,24 +70,13 @@ class StringList
 //Eric
 size
 
-//Bryan
-clear
-
 //Eric
 front
-
-//Bryan
-back
 
 //Eric
 push_back
 
-//Bryan
-pop_back
-
 //Eric
 reverse
 
-//Bryan
-unique
 */
