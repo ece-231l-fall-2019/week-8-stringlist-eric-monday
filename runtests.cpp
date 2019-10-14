@@ -47,10 +47,10 @@ int main()
 	Assert(a.back() == "A", "back method");
 	a.push_front("A");
 	a.unique();
-	Assert(a.size() == 2, "unique method");
+	Assert(a.size() == 1, "unique method");
 
 	a.clear();
-	Assert(a.front() == "", "clear method");
+	Assert(a.empty(), "clear method");
 
 	return 0;
 }
