@@ -37,11 +37,19 @@ class StringList
 	// copy operator
 	StringList& operator=(const StringList& b)
 	{
-		
-		llist *b = new llist;
-		b = _data;
-		b->next = _data->next;
-		b->previous = _data->previous;
+		llist *copier = b._data;
+		copier->str = b->str;
+		_data = b.front();
+		while(copier->next != NULL)
+		{
+			str = copier->str;
+			_data->next = copier->next;
+			_data->prev = copier->prev;
+			copier = copier->next;
+		}
+		_datalast = b.back();
+		size = b.size();
+
 	}
 	
 	std::string& front()
