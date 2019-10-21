@@ -114,6 +114,17 @@ void StringList::pop_back()
 //--- Reverse ------------------------------------------
 void StringList::reverse()
 	{
+		llist *newhead = _tail;
+		llist *esrever;
+		for( ; newhead != NULL; newhead = newhead->next)
+		{
+			esrever = newhead->next;
+			newhead->next = newhead->prev;
+			newhead->prev = esrever;
+		}
+		llist *temp = _head;
+		_head = _tail;
+		_tail = temp;
 	}
 	
 //--- Unique -------------------------------------------
