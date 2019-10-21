@@ -8,84 +8,73 @@ class StringList
 	typedef struct llist {
 		std::string str;
 		struct llist *next;
-		struct llist *previous;
+		struct llist *prev;
 	} llist;
 
-	llist *_data;
-	llist *_dataLast;
-	int _size;
+	llist *_head; //begining of list
+	llist *_tail;// end of list
+	size_t _size;
 
 	public:
 	
-	// default constructor
+//--- Default Constructor ------------------------------
 	StringList()
 	{
-		_data = 0;
-		_dataLast = 0;
+		_head = 0;
+		_tail = 0;
 		_size = 0;
 	}
-
-	// copy constructor
-	StringList(const StringList&);
-
-	// destructor
+	
+//--- Copy Constructor ---------------------------------
+	StringList(const StringList& other);
+	
+//--- Destructor ---------------------------------------
 	~StringList()
 	{
 		while(!empty())
 			pop_front();
 	}
-	//Eric
-	// copy operator
-	StringList& operator=(const StringList&);
-
-	std::string& front()
-	{
-		return _data->str;
-	}
-
-	void push_front(std::string str)
-	{
-		llist *newItem = new llist;
-		newItem->str = str;
-		newItem->next = _data;
-		size++;
-		_data = newItem;
-		if(size >= 1){
-			_dataLast = 
-		}
-	}
-
-	void pop_front()
-	{
-		llist *front = _data;
-		_data = front->next;
-		delete front;
-		size--;
-	}
-
+	
+//--- Operator Equal -----------------------------------
+	StringList& operator=(const StringList& b);
+	
+//--- Empty --------------------------------------------
 	bool empty() const
 	{
-		return _data == 0;
+		if(_head == 0)
+			return true;
+		return false;
 	}
-	//Bryan
+	
+//--- Size ---------------------------------------------
+	size_t size() const
+	{
+		return _size;
+	}
+//--- Clear --------------------------------------------
 	void clear();
-	string& back();
-	void pop_back(string str);
+	
+//--- Reference Front & Back ---------------------------
+	std::string& front();
+	std::string& back();
+	
+//--- Push Functions ------------------------------------
+	void push_front(std::string str);
+	void push_back(std::string str);	
+	
+//--- Pop Functions ------------------------------------
+	void pop_front();
+	void pop_back();
+	
+//--- Reverse ------------------------------------------
+	void reverse();
+	
+//--- Unique -------------------------------------------
 	void unique();
+
+//--- Print --------------------------------------------	
+	void printList();
+
 };
 
-/*
 
-//Eric
-size
-
-//Eric
-front
-
-//Eric
-push_back
-
-//Eric
-reverse
-
-*/

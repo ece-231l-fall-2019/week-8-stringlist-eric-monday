@@ -3,7 +3,7 @@
 // change the value below to 1 to run tests against your StringList class.
 // change the value below to 0 to run tests against the built in std::list.
 
-#if 0
+#if 1
 #include "StringList.h"
 #else
 #include <list>
@@ -21,38 +21,33 @@ void Assert(bool cond, std::string message)
 
 int main()
 {
-	// TODO:
-	// Write *at least* 15 more tests to fully test
-	// your class.
+	StringList list_1;
+	
+	list_1.push_back("4");
+	list_1.push_back("5");
+	list_1.push_back("6");
+	list_1.push_front("3");
+	list_1.push_front("2");
+	list_1.push_front("1");
+	
+	list_1.printList();
+	
+	StringList list_2;
+	
+	list_2 = list_1;
+	
+	list_2.printList();
+	
+	list_2.push_front("1");
+	list_2.push_back("6");
+	list_2.push_back("6");
+	list_2.push_back("6");
+	
+	list_2.printList();
+	list_2.unique();
+	list_2.printList();
+	
+	
 
-	StringList a;
 
-	a.push_back("A");
-	a.push_back("B");
-	a.push_front("C");
-	a.push_front("D");
-	a.push_back("E");
-
-	Assert(a.size() == 5, "size method");
-
-	Assert(a.front() == "D", "front method");
-	a.pop_front();
-	Assert(a.front() == "C", "pop_front method");
-	Assert(a.back() == "E", "back method");
-	a.pop_back();
-	Assert(a.back() == "B", "pop_back method");
-	a.pop_front();
-	Assert(a.front() == "A", "front method");
-	a.pop_back();
-	Assert(a.back() == "A", "back method");
-	a.push_front("A");
-	a.unique();
-	Assert(a.size() == 1, "unique method");
-
-	a.clear();
-	Assert(a.empty(), "clear method");
-
-	return 0;
 }
-
-
